@@ -35,8 +35,8 @@ xhr.onload = function()
         	row.add(photo);
 
         	var bookName = Ti.UI.createLabel({
-            		color:'#576996',
-            		font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
+			color: '#420404',
+			font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
             		left:70,
             		top:2,
             		height:30,
@@ -81,7 +81,7 @@ xhr.send();
 tableView = Titanium.UI.createTableView({
 	data:data,
 	filterAttribute:'filter',
-	backgroundColor:'white'
+	backgroundColor:'transparent'
 });
 
 tableView.addEventListener('click', function(e)
@@ -90,13 +90,17 @@ tableView.addEventListener('click', function(e)
 	{
 		var win = Titanium.UI.createWindow({
 			url:e.rowData.detailView,
+			barColor:'111',
 			title:e.rowData.bookName
 		});
+	win.backgroundImage = '../images/gradientBackground.png';
         win.book = e.rowData.book;
 		Titanium.UI.currentTab.open(win,{animated:true});
 	}
 });
 
+
+Titanium.UI.currentWindow.backgroundImage = '../images/gradientBackground.png';
 Titanium.UI.currentWindow.add(tableView);
 
 Titanium.UI.currentWindow.addEventListener('focus', function(e) {

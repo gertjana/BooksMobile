@@ -4,11 +4,9 @@ function createRow(label, value) {
 	var labelLabel = Ti.UI.createLabel({
 		text: label,
 		color: '#220404',
-		shadowColor:'#FFFFE6',
-		shadowOffset:{x:0,y:1},
 		textAlign:'left',
-		top:10,
-		left:10,
+		top:2,
+		left:4,
 		width: 'auto',
 		height:'auto',
 		font:{fontWeight:'bold',fontSize:10}
@@ -18,8 +16,6 @@ function createRow(label, value) {
 	var labelValue = Ti.UI.createLabel({
 		text: value,
 		color: '#420404',
-		shadowColor:'#FFFFE6',
-		shadowOffset:{x:0,y:1},
 		textAlign:'left',
 		top:20,
 		left:85,
@@ -56,11 +52,11 @@ data.push(createRow("Published", book.publisher + " " + book.publishedYear));
 
 var tableview = Titanium.UI.createTableView({
 	data:data,
-	style:Titanium.UI.iPhone.TableViewStyle.PLAIN,
+/*	style:Titanium.UI.iPhone.TableViewStyle.PLAIN,*/
 	backgroundColor:'transparent',
 	maxRowHeight:160,
-	minRowHeight:50,
-	separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.NONE
+	minRowHeight:50 //,
+/*	separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.NONE*/
 });
 
 tableview.addEventListener('click',function(e)

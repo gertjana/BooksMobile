@@ -12,7 +12,8 @@ var tabGroup = Titanium.UI.createTabGroup();
 
 var win1 = Titanium.UI.createWindow({  
     url:'windows/authors.js',
-    title:'Authors'
+    title:'Authors',
+    barColor:'111'
 });
 var tab1 = Titanium.UI.createTab({  
     icon:'KS_nav_ui.png',

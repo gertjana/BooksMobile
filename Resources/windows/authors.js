@@ -55,9 +55,9 @@ xhr.onload = function()
     row.add(photo);
 
     var authorName = Ti.UI.createLabel({
-        color:'#576996',
-        font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
-        left:70,
+	font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
+ 	color: '#420404',
+	left:70,
         top:2,
         height:30,
         width:200,
@@ -108,7 +108,7 @@ Titanium.UI.currentWindow.addEventListener('focus', function (e) {
 tableView = Titanium.UI.createTableView({
 	data:data,
 	filterAttribute:'filter',
-	backgroundColor:'white'
+	backgroundColor:'transparent'
 });
 
 // create table view event listener
@@ -119,11 +119,12 @@ tableView.addEventListener('click', function(e)
 		var win = Titanium.UI.createWindow({
 			url:e.rowData.detailView,
 			title:e.rowData.author,
-            books:e.rowData.books
+			barColor:'111',
+            		books:e.rowData.books
 		});
         win.author = e.rowData.author;
 		Titanium.UI.currentTab.open(win,{animated:true});
 	}
 });
-
+Titanium.UI.currentWindow.backgroundImage = '../images/gradientBackground.png';
 Titanium.UI.currentWindow.add(tableView);
