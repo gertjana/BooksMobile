@@ -5,6 +5,10 @@ var tableView;
 var books = [];
 var data = [];
 
+var win = Ti.UI.currentWindow;
+win.backgroundImage = '../images/gradientBackground.png';
+
+
 var xhr = Titanium.Network.createHTTPClient();
 
 xhr.onload = function()
@@ -17,12 +21,11 @@ xhr.onload = function()
         
 
         	var row = Ti.UI.createTableViewRow();
-        	row.selectedBackgroundColor = '#fff';
         	row.height = 60;
         	row.className = 'datarow';
         	row.hasChild = true;
 
-        	row.detailView = 'book2.js';
+        	row.detailView = 'book.js';
         	row.book = book;
 	
         	var photo = Ti.UI.createImageView({
@@ -35,7 +38,7 @@ xhr.onload = function()
         	row.add(photo);
 
         	var bookName = Ti.UI.createLabel({
-			color: '#420404',
+			color: win.color1,
 			font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
             		left:70,
             		top:2,
@@ -46,7 +49,7 @@ xhr.onload = function()
         	row.add(bookName);
 
         	var bookPublished = Ti.UI.createLabel({
-            		color:'#888',
+            		color: win.color2,
             		font:{fontSize:12, fontFamily:'Arial'},
             		left:70,
             		top:22,
@@ -57,7 +60,7 @@ xhr.onload = function()
         	row.add(bookPublished);
 
         	var bookIsbn = Ti.UI.createLabel({
-            		color:'#888',
+            		color: win.color2,
             		font:{fontSize:12, fontFamily:'Arial'},
             		left:70,
             		top:37,
@@ -81,6 +84,7 @@ xhr.send();
 tableView = Titanium.UI.createTableView({
 	data:data,
 	filterAttribute:'filter',
+	separatorColor:win.color1,
 	backgroundColor:'transparent'
 });
 
@@ -88,19 +92,19 @@ tableView.addEventListener('click', function(e)
 {
 	if (e.rowData.detailView)
 	{
-		var win = Titanium.UI.createWindow({
+		var newwin = Titanium.UI.createWindow({
 			url:e.rowData.detailView,
-			barColor:'111',
-			title:e.rowData.bookName
+			barColor:win.color1,
+			title:e.rowData.bookName,
+			color1:win.color1,
+			color2:win.color2
 		});
-	win.backgroundImage = '../images/gradientBackground.png';
-        win.book = e.rowData.book;
-		Titanium.UI.currentTab.open(win,{animated:true});
+        newwin.book = e.rowData.book;
+		Titanium.UI.currentTab.open(newwin,{animated:true});
 	}
 });
 
 
-Titanium.UI.currentWindow.backgroundImage = '../images/gradientBackground.png';
 Titanium.UI.currentWindow.add(tableView);
 
 Titanium.UI.currentWindow.addEventListener('focus', function(e) {

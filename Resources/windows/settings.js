@@ -1,9 +1,10 @@
 var win = Titanium.UI.currentWindow;
+win.backgroundImage = '../images/gradientBackground.png';
 
 var url = Titanium.App.Properties.getString('url');
 
 win.add(Ti.UI.createLabel({
-    color:'#576996',
+    color:win.color1,
     font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
     left:10,
     top:10,
@@ -13,7 +14,7 @@ win.add(Ti.UI.createLabel({
 }));
 
 var urlTextField = Titanium.UI.createTextField({
-	color:'#336699',
+	color: win.color2,
 	height:35,
 	top:35,
 	left:10,

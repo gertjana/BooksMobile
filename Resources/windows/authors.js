@@ -2,6 +2,10 @@ var tableView;
 var data = [];
 var authors = [];
 
+var win = Titanium.UI.currentWindow;
+win.backgroundImage = '../images/gradientBackground.png';
+
+
 var authorBaseUri =  Titanium.App.Properties.getString('url') + "key/authors/";
 
 var xhr = Titanium.Network.createHTTPClient();
@@ -25,7 +29,6 @@ xhr.onload = function()
         image = '../images/user.png';
         var row = Ti.UI.createTableViewRow();
         
-        row.selectedBackgroundColor = '#fff';
         row.height = 60;
         row.className = 'datarow';
         row.hasChild = true;
@@ -56,7 +59,7 @@ xhr.onload = function()
 
     var authorName = Ti.UI.createLabel({
 	font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
- 	color: '#420404',
+ 	color: win.color1,
 	left:70,
         top:2,
         height:30,
@@ -77,7 +80,7 @@ xhr.onload = function()
     row.add(authorDate);
 */
     var nrOfBooks = Ti.UI.createLabel({
-		color:'#444',
+		color: win.color2,
 		font:{fontSize:12,fontFamily:'Arial'},
 		left:70,
 		top:36,
@@ -108,6 +111,7 @@ Titanium.UI.currentWindow.addEventListener('focus', function (e) {
 tableView = Titanium.UI.createTableView({
 	data:data,
 	filterAttribute:'filter',
+	separatorColor: win.color1,
 	backgroundColor:'transparent'
 });
 
@@ -116,15 +120,16 @@ tableView.addEventListener('click', function(e)
 {
 	if (e.rowData.detailView)
 	{
-		var win = Titanium.UI.createWindow({
+		var newwin = Titanium.UI.createWindow({
 			url:e.rowData.detailView,
 			title:e.rowData.author,
-			barColor:'111',
-            		books:e.rowData.books
+			barColor: win.color1,
+            books:e.rowData.books,
+            color1:win.color1,
+            color2:win.color2
 		});
-        win.author = e.rowData.author;
-		Titanium.UI.currentTab.open(win,{animated:true});
+        newwin.author = e.rowData.author;
+		Titanium.UI.currentTab.open(newwin,{animated:true});
 	}
 });
-Titanium.UI.currentWindow.backgroundImage = '../images/gradientBackground.png';
 Titanium.UI.currentWindow.add(tableView);

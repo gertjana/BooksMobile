@@ -6,6 +6,10 @@ Titanium.API.info("starting application");
     Titanium.App.Properties.setString('url', 'http://localhost:8080/books/api/');
 //}
 
+var settings = {
+    color1: '#420404',
+    color2: '#220404'
+    };
 
 
 var tabGroup = Titanium.UI.createTabGroup();
@@ -13,7 +17,9 @@ var tabGroup = Titanium.UI.createTabGroup();
 var win1 = Titanium.UI.createWindow({  
     url:'windows/authors.js',
     title:'Authors',
-    barColor:'111'
+    barColor: settings.mainColor,
+    color1: settings.color1,
+    color2: settings.color2
 });
 var tab1 = Titanium.UI.createTab({  
     icon:'KS_nav_ui.png',
@@ -23,7 +29,10 @@ var tab1 = Titanium.UI.createTab({
 
 var win2 = Titanium.UI.createWindow({  
     url: 'windows/about.js',
-    title:'About'
+    title:'About',
+    barColor: settings.color1,
+    color1: settings.color1,
+    color2: settings.color2
 });
 var tab2 = Titanium.UI.createTab({  
     icon:'KS_nav_phone.png',
@@ -33,18 +42,25 @@ var tab2 = Titanium.UI.createTab({
 
 var win3 = Titanium.UI.createWindow({  
     url: 'windows/scan.js',
-    title:'Scan a Book'
+    barColor:settings.color1,
+    title:'Scan a Book',
+    color1: settings.color1,
+    color2: settings.color2
 });
 
 var tab3 = Titanium.UI.createTab({
     icon:'KS_nav_mashup.png',
-    title:'Scan a Book'
+    title:'Scan a Book',
+    window:win3
 });
 
 
 var win4 = Titanium.UI.createWindow({
     url:'windows/settings.js',
-    title:'Settings'
+    barColor:settings.color1,
+    title:'Settings',
+    color1: settings.color1,
+    color2: settings.color2
 });
 
 var tab4 = Titanium.UI.createTab({

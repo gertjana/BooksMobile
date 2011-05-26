@@ -1,107 +1,63 @@
+function createRow(name, value) {
+	var row = Ti.UI.createTableViewRow();
+	
+	var labelName = Ti.UI.createLabel({
+		text: name,
+		color: '#220404',
+		textAlign:'left',
+		top:2,
+		left:4,
+		width: 'auto',
+		height:'auto',
+		font:{fontWeight:'bold',fontSize:10}
+	});
+	row.add(labelName);
+
+	var labelValue = Ti.UI.createLabel({
+		text: value,
+		color: '#420404',
+		textAlign:'left',
+		top:5,
+		left:65,
+		width: 'auto',
+		height:'auto',
+		font:{fontWeight:'bold',fontSize:14}
+	});
+	row.add(labelValue);	
+	
+	return row;
+}
+
 var win = Ti.UI.currentWindow;
 var book = win.book;
+win.backgroundImage = '../images/gradientBackground.png';
+
+var data = [];
+
 
 var cover = Ti.UI.createImageView({
-    image:book.imageurl,
-    top:5,
-    left:5,
-    width:310,
+   	image:book.imageurl,
     height:160
 });
 
-win.add(cover);
+var row = Ti.UI.createTableViewRow();
+row.height = 170;
+row.add(cover);
 
-win.add(Ti.UI.createLabel({
-    color:'#576996',
-    font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
-    left:5,
-    top:240,
-    height:30,
-    width:'auto',
-    textAlign:'center',
-    text:book.title
-}));
+data.push(row);
 
-win.add(Ti.UI.createLabel({
-    color:'#444',
-    font:{fontSize:12, fontFamily:'Arial'},
-    left:105,
-    top:265,
-    height:20,
-    width:200,
-    text:book.authors
-}));
+data.push(createRow("Authors", book.authors));
+data.push(createRow("ISBN", book.isbn));
+data.push(createRow("Published", book.publisher + " " + book.publishedYear));
 
-win.add(Ti.UI.createLabel({
-    color:'#444',
-    font:{fontSize:12, fontFamily:'Arial'},
-    left:105,
-    top:280,
-    height:20,
-    width:200,
-    text:book.publisher
-}));
-        
-win.add(Ti.UI.createLabel({
-    color:'#444',
-    font:{fontSize:12, fontFamily:'Arial'},
-    left:105,
-    top:295,
-    height:20,
-    width:200,
-    text:book.publishedYear
-}));
-        
-win.add(Ti.UI.createLabel({
-    color:'#444',
-    font:{fontSize:12, fontFamily:'Arial'},
-    left:105,
-    top:310,
-    height:20,
-    width:200,
-    text:book.isbn
-}));
- 
-win.add(Ti.UI.createLabel({
-    color:'#888',
-    font:{fontSize:12, fontFamily:'Arial'},
-    left:25,
-    top:265,
-    height:20,
-    width:200,
-    text:'Author(s)'
-}));
+var tableview = Titanium.UI.createTableView({
+	data:data,
+	backgroundColor:'transparent',
+	separatorColor: win.color1,
+	maxRowHeight:170,
+	minRowHeight:50
+});
+
+win.add(tableview);
 
 
-win.add(Ti.UI.createLabel({
-    color:'#888',
-    font:{fontSize:12, fontFamily:'Arial'},
-    left:25,
-    top:280,
-    height:20,
-    width:200,
-    text:'Publisher'
-}));
-        
-win.add(Ti.UI.createLabel({
-    color:'#888',
-    font:{fontSize:12, fontFamily:'Arial'},
-    left:25,
-    top:295,
-    height:20,
-    width:200,
-    text:'Pub. Date'
-}));
-        
-win.add(Ti.UI.createLabel({
-    color:'#888',
-    font:{fontSize:12, fontFamily:'Arial'},
-    left:25,
-    top:310,
-    height:20,
-    width:200,
-    text:'ISBN'
-}));
-        
-         
-           
