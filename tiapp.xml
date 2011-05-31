@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <id>net.addictivesoftware.sdk4.booksmobile</id>
-    <name>BooksMobile</name>
-    <version>1.0</version>
-    <publisher>not specified</publisher>
-    <url>not specified</url>
-    <description>not specified</description>
-    <copyright>not specified</copyright>
-    <icon>Icon.png</icon>
+<id>net.addictivesoftware.sdk4.booksmobile</id>
+<name>BooksMobile</name>
+<version>1.0</version>
+<publisher>gertjan</publisher>
+<url>http://www.addictivesoftware.net</url>
+<description>No description provided</description>
+<copyright>2011 by gertjan</copyright>
+<icon>Icon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>
