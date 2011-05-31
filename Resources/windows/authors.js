@@ -5,8 +5,8 @@ var authors = [];
 var win = Titanium.UI.currentWindow;
 win.backgroundImage = '../images/gradientBackground.png';
 
-
-var authorBaseUri =  Ti.App.Properties.getString('url') + "key/authors/";
+var key = Ti.App.Properties.getString("apikey");
+var authorsUri =  Ti.App.Properties.getString('url') + key + "/authors/";
 
 var xhr = Titanium.Network.createHTTPClient();
 
@@ -35,7 +35,7 @@ xhr.onload = function()
 
         row.detailView = 'books_author.js';
         row.author = name;
-        row.books = authorBaseUri + author.id + "/books/";
+        row.books = authorsUri + author.id + "/books/";
         
         var firstChar = author.lastname.substring(0,1);        
         if (firstChar != previousChar) {
@@ -100,10 +100,12 @@ xhr.onload = function()
 
 
 Titanium.UI.currentWindow.addEventListener('focus', function (e) {
+        var key = Ti.App.Properties.getString("apikey");
+        var authorsUri =  Ti.App.Properties.getString('url') + key + "/authors/all";
 
-        Ti.API.info(authorBaseUri);
+        Ti.API.info(authorsUri +"/all");
 
-        xhr.open('GET',authorBaseUri+"all/");
+        xhr.open('GET',authorsUri + "/all");
         xhr.send();
     
 });
@@ -128,6 +130,7 @@ tableView.addEventListener('click', function(e)
             color1:win.color1,
             color2:win.color2
 		});
+		Ti.API.info(e.rowData.detailView);
         newwin.author = e.rowData.author;
 		Titanium.UI.currentTab.open(newwin,{animated:true});
 	}
