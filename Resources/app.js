@@ -2,9 +2,9 @@ Titanium.UI.setBackgroundColor('#fff');
 
 Titanium.API.info("starting application");
 
-//if (! Titanium.App.Properties.hasProperty('url')) {
-    Titanium.App.Properties.setString('url', 'http://localhost:8080/books/api/');
-//}
+if (! Titanium.App.Properties.hasProperty('url')) {
+    Titanium.App.Properties.setString('url', 'http://books.addictivesoftware.net/api/');
+}
 
 var settings = {
     color1: '#420404',
@@ -17,7 +17,7 @@ var tabGroup = Titanium.UI.createTabGroup();
 var win1 = Titanium.UI.createWindow({  
     url:'windows/authors.js',
     title:'Authors',
-    barColor: settings.mainColor,
+    barColor: settings.color1,
     color1: settings.color1,
     color2: settings.color2
 });

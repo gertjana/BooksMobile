@@ -6,7 +6,7 @@ var win = Titanium.UI.currentWindow;
 win.backgroundImage = '../images/gradientBackground.png';
 
 
-var authorBaseUri =  Titanium.App.Properties.getString('url') + "key/authors/";
+var authorBaseUri =  Ti.App.Properties.getString('url') + "key/authors/";
 
 var xhr = Titanium.Network.createHTTPClient();
 
