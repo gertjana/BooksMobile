@@ -25,9 +25,11 @@ var urlTextField = Titanium.UI.createTextField({
     value:url
 });
 
-urlTextField.addEventListener('return', function()
+urlTextField.addEventListener('change', function()
 {
-    Titanium.App.Properties.setString(url, urlTextField.value);
+    Ti.API.info("change called:" + urlTextField.value);
+    Titanium.App.Properties.setString("url", urlTextField.value);
+    Ti.API.info(Ti.App.Properties.getString("url"));
 });
 
 win.add(urlTextField);
