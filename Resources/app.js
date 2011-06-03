@@ -1,6 +1,22 @@
-Titanium.UI.setBackgroundColor('#fff');
+/*
+Copyright [2011] [Addictive Software]
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+Titanium.UI.setBackgroundColor('#fff');
 Titanium.API.info("starting application");
+
 
 if (! Titanium.App.Properties.hasProperty('url')) {
     Titanium.App.Properties.setString('url', 'http://books.addictivesoftware.net/api/');
@@ -22,7 +38,7 @@ var win1 = Titanium.UI.createWindow({
     color2: settings.color2
 });
 var tab1 = Titanium.UI.createTab({  
-    icon:'KS_nav_ui.png',
+    icon:'images/authors.png',
     title:'Authors',
     window:win1
 });
@@ -35,7 +51,7 @@ var win2 = Titanium.UI.createWindow({
     color2: settings.color2
 });
 var tab2 = Titanium.UI.createTab({  
-    icon:'KS_nav_phone.png',
+    icon:'images/about.png',
     title:'About',
     window:win2
 });
@@ -49,7 +65,7 @@ var win3 = Titanium.UI.createWindow({
 });
 
 var tab3 = Titanium.UI.createTab({
-    icon:'KS_nav_mashup.png',
+    icon:'images/scan.png',
     title:'Scan a Book',
     window:win3
 });
@@ -64,7 +80,7 @@ var win4 = Titanium.UI.createWindow({
 });
 
 var tab4 = Titanium.UI.createTab({
-    icon:'KS_nav_mashup.png',
+    icon:'images/settings.png',
     title:'Settings',
     window:win4
 });
