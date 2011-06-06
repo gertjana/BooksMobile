@@ -1,1 +1,11 @@
-Place your change log text here.  This file will be incorporated with your app at package time.
+0.1.2
+ - re-done design
+ - uses new REST Api and JSON
+ - login screen
+ - removed facebook login as it was not working correctly
+
+0.1.1
+ - First working version
+
+0.1
+ - Initial version
