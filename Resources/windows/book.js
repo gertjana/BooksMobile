@@ -62,6 +62,7 @@ row.add(cover);
 
 data.push(row);
 
+data.push(createRow("Title", book.title));
 data.push(createRow("Author(s)", book.authors));
 data.push(createRow("ISBN", book.isbn));
 data.push(createRow("Published", book.publisher + " " + book.publishedYear));
