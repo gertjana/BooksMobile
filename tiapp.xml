@@ -7,7 +7,7 @@
 <url>http://www.addictivesoftware.net</url>
 <description>No description provided</description>
 <copyright>2011 by gertjan</copyright>
-<icon>Icon.png</icon>
+<icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>false</prerendered-icon>
     <statusbar-style>default</statusbar-style>
