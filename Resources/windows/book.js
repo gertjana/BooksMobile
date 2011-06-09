@@ -108,6 +108,9 @@ addButton.addEventListener('click', function()
     xhr.send();
 
 });
-win.setRightNavButton(addButton);
+
+if (! win.myCollection) {
+    win.setRightNavButton(addButton);
+}
 
 

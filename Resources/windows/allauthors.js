@@ -147,7 +147,8 @@ tableView.addEventListener('click', function(e)
             books:e.rowData.books,
             color1:win.color1,
             color2:win.color2,
-            message:win.message
+            message:win.message,
+            myCollection:false
 		});
 		Ti.API.info(e.rowData.detailView);
         newwin.author = e.rowData.author;

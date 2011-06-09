@@ -116,7 +116,8 @@ tableView.addEventListener('click', function(e)
 			title:e.rowData.bookName,
 			color1:win.color1,
 			color2:win.color2,
-			message:win.message
+			message:win.message,
+			myCollection:win.myCollection
 		});
         newwin.book = e.rowData.book;
 		Titanium.UI.currentTab.open(newwin,{animated:true});
