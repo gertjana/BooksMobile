@@ -22,7 +22,7 @@ var win = Titanium.UI.currentWindow;
 win.backgroundImage = '../images/gradientBackground.png';
 
 var key = Ti.App.Properties.getString("apikey");
-var authorsUri =  Ti.App.Properties.getString('url') + key + "/user/authors/";
+var authorsUri =  Ti.App.Properties.getString('url') + key + "/authors/";
 
 var xhr = Titanium.Network.createHTTPClient();
 
@@ -117,7 +117,7 @@ xhr.onload = function()
 
 Titanium.UI.currentWindow.addEventListener('focus', function (e) {
         var key = Ti.App.Properties.getString("apikey");
-        var authorsUri =  Ti.App.Properties.getString('url') + key + "/user/authors/all";
+        var authorsUri =  Ti.App.Properties.getString('url') + key + "/authors/all";
 
         Ti.API.info(authorsUri);
 

@@ -30,33 +30,46 @@ var settings = {
 
 var tabGroup = Titanium.UI.createTabGroup();
 
-var win1 = Titanium.UI.createWindow({  
-    url:'windows/authors.js',
-    title:'Authors',
+var winAllAuthors = Titanium.UI.createWindow({
+    url:'windows/allauthors.js',
+    title:'All Books - Authors',
     barColor: settings.color1,
     color1: settings.color1,
     color2: settings.color2
 });
-var tab1 = Titanium.UI.createTab({  
+var tabAllAuthors = Titanium.UI.createTab({
     icon:'images/authors.png',
-    title:'Authors',
-    window:win1
+    title:'All Books',
+    window:winAllAuthors
 });
 
-var win2 = Titanium.UI.createWindow({  
+var winMyAuthors = Titanium.UI.createWindow({
+    url:'windows/authors.js',
+    title:'My Books - Authors',
+    barColor: settings.color1,
+    color1: settings.color1,
+    color2: settings.color2
+});
+var tabMyAuthors = Titanium.UI.createTab({
+    icon:'images/authors.png',
+    title:'My Books',
+    window:winMyAuthors
+});
+
+var winAbout = Titanium.UI.createWindow({
     url: 'windows/about.js',
     title:'About',
     barColor: settings.color1,
     color1: settings.color1,
     color2: settings.color2
 });
-var tab2 = Titanium.UI.createTab({  
+var tabAbout = Titanium.UI.createTab({
     icon:'images/about.png',
     title:'About',
-    window:win2
+    window:winAbout
 });
 
-var win3 = Titanium.UI.createWindow({  
+var winScan = Titanium.UI.createWindow({
     url: 'windows/scan.js',
     barColor:settings.color1,
     title:'Scan a Book',
@@ -64,14 +77,14 @@ var win3 = Titanium.UI.createWindow({
     color2: settings.color2
 });
 
-var tab3 = Titanium.UI.createTab({
+var tabScan = Titanium.UI.createTab({
     icon:'images/scan.png',
     title:'Scan a Book',
-    window:win3
+    window:winScan
 });
 
 
-var win4 = Titanium.UI.createWindow({
+var winSettings = Titanium.UI.createWindow({
     url:'windows/settings.js',
     barColor:settings.color1,
     title:'Settings',
@@ -79,16 +92,17 @@ var win4 = Titanium.UI.createWindow({
     color2: settings.color2
 });
 
-var tab4 = Titanium.UI.createTab({
+var tabSettings = Titanium.UI.createTab({
     icon:'images/settings.png',
     title:'Settings',
-    window:win4
+    window:winSettings
 });
 
-tabGroup.addTab(tab1);  
-tabGroup.addTab(tab2);  
-tabGroup.addTab(tab3);  
-tabGroup.addTab(tab4);  
+tabGroup.addTab(tabAllAuthors);
+tabGroup.addTab(tabMyAuthors);
+tabGroup.addTab(tabScan);
+tabGroup.addTab(tabAbout);
+tabGroup.addTab(tabSettings);
 
 tabGroup.open();
 
