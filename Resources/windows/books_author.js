@@ -27,6 +27,8 @@ win.backgroundImage = '../images/gradientBackground.png';
 
 var xhr = Titanium.Network.createHTTPClient();
 
+win.message.text("loading books for author");
+
 xhr.onload = function()
 {
 	var books = JSON.parse(this.responseText).books;
@@ -113,7 +115,8 @@ tableView.addEventListener('click', function(e)
 			barColor:win.color1,
 			title:e.rowData.bookName,
 			color1:win.color1,
-			color2:win.color2
+			color2:win.color2,
+			message:win.message
 		});
         newwin.book = e.rowData.book;
 		Titanium.UI.currentTab.open(newwin,{animated:true});

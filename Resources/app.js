@@ -30,12 +30,59 @@ var settings = {
 
 var tabGroup = Titanium.UI.createTabGroup();
 
+//
+//  TAB GROUP EVENTS
+//
+var messageWin = Titanium.UI.createWindow({
+	height:30,
+	width:250,
+	bottom:70,
+	borderRadius:10,
+	touchEnabled:false
+});
+var messageView = Titanium.UI.createView({
+	height:30,
+	width:250,
+	borderRadius:10,
+	backgroundColor:settings.color1,
+	opacity:0.7,
+	touchEnabled:false
+});
+
+var messageLabel = Titanium.UI.createLabel({
+	text:'',
+	color:'#fff',
+	width:250,
+	height:'auto',
+	font:{
+		fontFamily:'Helvetica Neue',
+		fontSize:13
+	},
+	textAlign:'center'
+});
+
+messageWin.add(messageView);
+messageWin.add(messageLabel);
+
+messageWin.text = function(message) {
+	messageLabel.text = message;
+	messageWin.open();
+	setTimeout(function()
+	{
+		messageWin.close({opacity:0,duration:500});
+	},1000);
+
+};
+
+
+
 var winAllAuthors = Titanium.UI.createWindow({
     url:'windows/allauthors.js',
     title:'All Books - Authors',
     barColor: settings.color1,
     color1: settings.color1,
-    color2: settings.color2
+    color2: settings.color2,
+    message: messageWin
 });
 var tabAllAuthors = Titanium.UI.createTab({
     icon:'images/authors.png',
@@ -48,7 +95,8 @@ var winMyAuthors = Titanium.UI.createWindow({
     title:'My Books - Authors',
     barColor: settings.color1,
     color1: settings.color1,
-    color2: settings.color2
+    color2: settings.color2,
+    message: messageWin
 });
 var tabMyAuthors = Titanium.UI.createTab({
     icon:'images/authors.png',
@@ -106,3 +154,9 @@ tabGroup.addTab(tabSettings);
 
 tabGroup.open();
 
+// tab group open event
+tabGroup.addEventListener('open', function(e)
+{
+	//messageWin.text("opening...");
+
+});

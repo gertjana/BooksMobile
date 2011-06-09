@@ -53,18 +53,17 @@ var data = [];
 var xhr = Titanium.Network.createHTTPClient();
 
 xhr.onload = function() {
-    alert(xhr.responseText);
     if (xhr.status == 200) {
-        alert("Added this book to your collection");
+        win.message.text("Added this book to your collection");
     } else if (xhr.status == 409) { //409 = Conflict
-        alert("Book is already part of your collection");
+        win.message.text("Book is already part of your collection");
     } else {
-        alert(xhr.status + " failed to add this book to your collection");
+        win.message.text(xhr.status + " failed to add this book to your collection");
     }
 };
 
 xhr.onerror = function() {
-    alert("Error occured while trying to add this book to your collection");
+    win.message.text("Error occured while trying to add this book to your collection");
 };
 
 var cover = Ti.UI.createImageView({

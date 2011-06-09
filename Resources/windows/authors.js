@@ -26,6 +26,8 @@ var authorsUri =  Ti.App.Properties.getString('url') + key + "/user/authors/";
 
 var xhr = Titanium.Network.createHTTPClient();
 
+win.message.text("loading authors...");
+
 xhr.onload = function()
 {
     var authors = JSON.parse(this.responseText).authors;    
@@ -144,7 +146,8 @@ tableView.addEventListener('click', function(e)
 			barColor: win.color1,
             books:e.rowData.books,
             color1:win.color1,
-            color2:win.color2
+            color2:win.color2,
+            message:win.message
 		});
 		Ti.API.info(e.rowData.detailView);
         newwin.author = e.rowData.author;
