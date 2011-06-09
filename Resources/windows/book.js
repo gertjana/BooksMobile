@@ -101,7 +101,7 @@ var addButton = Titanium.UI.createButton({
 addButton.addEventListener('click', function()
 {
     var key = Ti.App.Properties.getString("apikey");
-    var addBookToCollectionURI =  Ti.App.Properties.getString('url') + key + "/user/book/add/" + book.id;
+    var addBookToCollectionURI =  Ti.App.Properties.getString('url') + key + "/user/books/add/" + book.id;
 
     Ti.API.info(addBookToCollectionURI);
 
