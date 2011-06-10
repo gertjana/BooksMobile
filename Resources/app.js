@@ -152,8 +152,10 @@ tabGroup.addTab(tabScan);
 tabGroup.addTab(tabAbout);
 tabGroup.addTab(tabSettings);
 
-tabGroup.open();
-
+//tabGroup.open();
+tabGroup.open({
+	transition:3 //Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+});
 // tab group open event
 tabGroup.addEventListener('open', function(e)
 {
