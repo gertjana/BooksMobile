@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
+Ti.include("constants.js");
 
 var tableView;
 
@@ -56,7 +56,7 @@ xhr.onload = function()
         	row.add(photo);
 
         	var bookName = Ti.UI.createLabel({
-			color: win.color1,
+			color: settings.color1,
 			font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
             		left:70,
             		top:2,
@@ -67,7 +67,7 @@ xhr.onload = function()
         	row.add(bookName);
 
         	var bookPublished = Ti.UI.createLabel({
-            		color: win.color2,
+            		color: settings.color2,
             		font:{fontSize:12, fontFamily:'Arial'},
             		left:70,
             		top:22,
@@ -78,7 +78,7 @@ xhr.onload = function()
         	row.add(bookPublished);
 
         	var bookIsbn = Ti.UI.createLabel({
-            		color: win.color2,
+            		color: settings.color2,
             		font:{fontSize:12, fontFamily:'Arial'},
             		left:70,
             		top:37,
@@ -102,7 +102,7 @@ xhr.send();
 tableView = Titanium.UI.createTableView({
 	data:data,
 	filterAttribute:'filter',
-	separatorColor:win.color1,
+	separatorColor:settings.color1,
 	backgroundColor:'transparent'
 });
 
@@ -112,10 +112,8 @@ tableView.addEventListener('click', function(e)
 	{
 		var newwin = Titanium.UI.createWindow({
 			url:e.rowData.detailView,
-			barColor:win.color1,
+			barColor:settings.color1,
 			title:e.rowData.bookName,
-			color1:win.color1,
-			color2:win.color2,
 			message:win.message,
 			myCollection:win.myCollection
 		});

@@ -14,12 +14,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+Ti.include("constants.js");
+
 function createRow(name, value) {
 	var row = Ti.UI.createTableViewRow();
 	
 	var labelName = Ti.UI.createLabel({
 		text: name,
-		color: '#220404',
+		color: settings.color1,
 		textAlign:'left',
 		top:2,
 		left:4,
@@ -31,7 +33,7 @@ function createRow(name, value) {
 
 	var labelValue = Ti.UI.createLabel({
 		text: value,
-		color: '#420404',
+		color: settings.color2,
 		textAlign:'left',
 		top:5,
 		left:65,
@@ -85,7 +87,7 @@ data.push(createRow("Published", book.publisher + " " + book.publishedYear));
 var tableview = Titanium.UI.createTableView({
 	data:data,
 	backgroundColor:'transparent',
-	separatorColor: win.color1,
+	separatorColor: settings.color1,
 	maxRowHeight:170,
 	minRowHeight:50
 });

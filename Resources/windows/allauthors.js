@@ -14,6 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+Ti.include("constants.js");
+
 var tableView;
 var data = [];
 var authors = [];
@@ -77,7 +79,7 @@ xhr.onload = function()
 
     var authorName = Ti.UI.createLabel({
 	font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
- 	color: win.color1,
+ 	color: settings.color1,
 	left:70,
         top:2,
         height:30,
@@ -98,7 +100,7 @@ xhr.onload = function()
     row.add(authorDate);
 */
     var nrOfBooks = Ti.UI.createLabel({
-		color: win.color2,
+		color: settings.color2,
 		font:{fontSize:12,fontFamily:'Arial'},
 		left:70,
 		top:36,
@@ -131,7 +133,7 @@ Titanium.UI.currentWindow.addEventListener('focus', function (e) {
 tableView = Titanium.UI.createTableView({
 	data:data,
 	filterAttribute:'filter',
-	separatorColor: win.color1,
+	separatorColor: settings.color1,
 	backgroundColor:'transparent'
 });
 
@@ -143,10 +145,8 @@ tableView.addEventListener('click', function(e)
 		var newwin = Titanium.UI.createWindow({
 			url:e.rowData.detailView,
 			title:e.rowData.author,
-			barColor: win.color1,
+			barColor: settings.color1,
             books:e.rowData.books,
-            color1:win.color1,
-            color2:win.color2,
             message:win.message,
             myCollection:false
 		});

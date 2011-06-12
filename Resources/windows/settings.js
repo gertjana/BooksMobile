@@ -14,6 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+Ti.include("constants.js");
+
 var win = Titanium.UI.currentWindow;
 win.backgroundImage = '../images/gradientBackground.png';
 
@@ -23,7 +25,7 @@ var password = Titanium.App.Properties.getString('password');
 var apikey = Titanium.App.Properties.getString('apikey');
 
 win.add(Ti.UI.createLabel({
-    color:win.color1,
+    color:settings.color1,
     font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
     left:10,
     top:10,
@@ -33,7 +35,7 @@ win.add(Ti.UI.createLabel({
 }));
 
 win.add(Ti.UI.createLabel({
-    color:win.color1,
+    color:settings.color1,
     font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
     left:10,
     top:70,
@@ -43,7 +45,7 @@ win.add(Ti.UI.createLabel({
 }));
 
 win.add(Ti.UI.createLabel({
-    color:win.color1,
+    color:settings.color1,
     font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
     left:10,
     top:130,
@@ -53,7 +55,7 @@ win.add(Ti.UI.createLabel({
 }));
 
 win.add(Ti.UI.createLabel({
-    color:win.color1,
+    color:settings.color1,
     font:{fontSize:16,fontWeight:'bold', fontFamily:'Arial'},
     left:10,
     top:190,
@@ -63,7 +65,7 @@ win.add(Ti.UI.createLabel({
 }));
 
 var apikeyLabel = Ti.UI.createLabel({
-   color:win.color2,
+   color:settings.color2,
     font:{fontSize:12, fontFamily:'Arial'},
     left:10,
     top:210,
@@ -76,7 +78,7 @@ win.add(apikeyLabel);
 
 
 var urlTextField = Titanium.UI.createTextField({
-	color: win.color2,
+	color: settings.color2,
 	height:35,
 	top:35,
 	left:10,
@@ -88,7 +90,7 @@ var urlTextField = Titanium.UI.createTextField({
 });
 
 var usernameTextField = Titanium.UI.createTextField({
-	color: win.color2,
+	color: settings.color2,
 	height:35,
 	top:95,
 	left:10,
@@ -100,7 +102,7 @@ var usernameTextField = Titanium.UI.createTextField({
 });
 
 var passwordTextField = Titanium.UI.createTextField({
-	color: win.color2,
+	color: settings.color2,
 	height:35,
 	top:155,
 	left:10,
@@ -117,7 +119,7 @@ var button = Titanium.UI.createButton({
    top:245,
    left:10,
    width:150,
-   color:win.color1,
+   color:settings.color1,
    title:"Retrieve api key"
 });
 win.add(button);
@@ -143,7 +145,7 @@ xhr.onload = function() {
     } else {
         Ti.App.Properties.setString("apikey", "");
         apikeyLabel.text = "";
-        alert(JSON.parse(this.responseText).error);
+        win.message.text(JSON.parse(this.responseText).error);
     }
 
 };

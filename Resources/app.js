@@ -14,6 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+Ti.include("windows/constants.js");
+
 Titanium.UI.setBackgroundColor('#fff');
 Titanium.API.info("starting application");
 
@@ -22,10 +24,6 @@ if (! Titanium.App.Properties.hasProperty('url')) {
     Titanium.App.Properties.setString('url', 'http://books.addictivesoftware.net/api/');
 }
 
-var settings = {
-    color1: '#420404',
-    color2: '#220404'
-    };
 
 
 var tabGroup = Titanium.UI.createTabGroup();
@@ -122,7 +120,8 @@ var winScan = Titanium.UI.createWindow({
     barColor:settings.color1,
     title:'Scan a Book',
     color1: settings.color1,
-    color2: settings.color2
+    color2: settings.color2,
+    message:messageWin
 });
 
 var tabScan = Titanium.UI.createTab({
@@ -137,7 +136,8 @@ var winSettings = Titanium.UI.createWindow({
     barColor:settings.color1,
     title:'Settings',
     color1: settings.color1,
-    color2: settings.color2
+    color2: settings.color2,
+    message:messageWin
 });
 
 var tabSettings = Titanium.UI.createTab({
