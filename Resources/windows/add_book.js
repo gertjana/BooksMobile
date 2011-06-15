@@ -14,25 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-var APIKEY = "";
-var BASE_URI = "";
-var ADD_AUTHOR_URI = "";
-var USER_AUTHORS_URI = "";
+Ti.include("constants.js");
 
-function loadPropertiesAndUris() {
-    APIKEY = Ti.App.Properties.getString("apikey");
-    BASE_URI = Ti.App.Properties.getString("url");
-    ADD_AUTHOR_URI =   BASE_URI + APIKEY + "/authors/add";
-    USER_AUTHORS_URI = BASE_URI + APIKEY + "/user/authors/";
-}
-
-loadPropertiesAndUris();
-
-function reloadPropertiesAndUris() {
-    loadPropertiesAndUris();
-}
-
-var settings = {
-    color1: '#420404',
-    color2: '#220404'
-};
+var win = Titanium.UI.currentWindow;
+win.backgroundImage = '../images/gradientBackground.png';

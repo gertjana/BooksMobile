@@ -129,3 +129,21 @@ Titanium.UI.currentWindow.addEventListener('focus', function(e) {
     xhr.open('GET',Ti.UI.currentWindow.books);
     xhr.send();
 });
+
+var addButton = Titanium.UI.createButton({
+        title:'Add Book'
+});
+
+addButton.addEventListener('click', function() {
+    var winAddBook = Titanium.UI.createWindow({
+        url:'windows/add_book.js',
+        barColor:settings.color1,
+        title:'Add Book',
+        message:win.message
+    });
+
+    winAddBook.open();
+
+});
+
+win.setRightNavButton(addButton);

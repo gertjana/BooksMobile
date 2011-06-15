@@ -28,8 +28,6 @@ var authorsUri =  Ti.App.Properties.getString('url') + key + "/authors/";
 
 var xhr = Titanium.Network.createHTTPClient();
 
-win.message.text("loading authors...");
-
 xhr.onload = function()
 {
     var authors = JSON.parse(this.responseText).authors;    
@@ -156,3 +154,26 @@ tableView.addEventListener('click', function(e)
 	}
 });
 Titanium.UI.currentWindow.add(tableView);
+
+
+var addButton = Titanium.UI.createButton({
+        title:'Add Author'
+});
+
+var winAddAuthor = Titanium.UI.createWindow({
+    url:'add_author.js',
+    message:win.message,
+    top:45
+});
+
+addButton.addEventListener('click', function() {
+    if (addButton.title == 'close') {
+        addButton.title = "Add Author";
+        winAddAuthor.close();
+    } else {
+        addButton.title = "close";
+        winAddAuthor.open();
+    }
+});
+
+win.setRightNavButton(addButton);

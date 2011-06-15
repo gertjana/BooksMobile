@@ -23,12 +23,7 @@ var authors = [];
 var win = Titanium.UI.currentWindow;
 win.backgroundImage = '../images/gradientBackground.png';
 
-var key = Ti.App.Properties.getString("apikey");
-var authorsUri =  Ti.App.Properties.getString('url') + key + "/user/authors/";
-
 var xhr = Titanium.Network.createHTTPClient();
-
-win.message.text("loading authors...");
 
 xhr.onload = function()
 {
@@ -55,7 +50,7 @@ xhr.onload = function()
 
         row.detailView = 'books_author.js';
         row.author = name;
-        row.books = authorsUri + author.id + "/books/";
+        row.books = USER_AUTHORS_URI + author.id + "/books/";
         
         var firstChar = author.lastname.substring(0,1);        
         if (firstChar != previousChar) {
@@ -120,12 +115,11 @@ xhr.onload = function()
 
 
 Titanium.UI.currentWindow.addEventListener('focus', function (e) {
-        var key = Ti.App.Properties.getString("apikey");
-        var authorsUri =  Ti.App.Properties.getString('url') + key + "/user/authors/all";
+        reloadPropertiesAndUris();
 
-        Ti.API.info(authorsUri);
+        Ti.API.info(USER_AUTHORS_URI + "/all");
 
-        xhr.open('GET',authorsUri);
+        xhr.open('GET',USER_AUTHORS_URI + "/all");
         xhr.send();
     
 });

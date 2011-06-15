@@ -62,13 +62,19 @@ var messageLabel = Titanium.UI.createLabel({
 messageWin.add(messageView);
 messageWin.add(messageLabel);
 
+messageWin.debug = function(message) {messageWin.text("D:" +message);};
+messageWin.info = function(message) {messageWin.text("I:" +message);};
+messageWin.warn = function(message) {messageWin.text("W:" +message);};
+messageWin.error = function(message) {messageWin.text("E:" +message);};
+
+
 messageWin.text = function(message) {
 	messageLabel.text = message;
 	messageWin.open();
 	setTimeout(function()
 	{
 		messageWin.close({opacity:0,duration:500});
-	},1000);
+	},2000);
 
 };
 
@@ -105,9 +111,7 @@ var tabMyAuthors = Titanium.UI.createTab({
 var winAbout = Titanium.UI.createWindow({
     url: 'windows/about.js',
     title:'About',
-    barColor: settings.color1,
-    color1: settings.color1,
-    color2: settings.color2
+    barColor: settings.color1
 });
 var tabAbout = Titanium.UI.createTab({
     icon:'images/about.png',
@@ -119,8 +123,6 @@ var winScan = Titanium.UI.createWindow({
     url: 'windows/scan.js',
     barColor:settings.color1,
     title:'Scan a Book',
-    color1: settings.color1,
-    color2: settings.color2,
     message:messageWin
 });
 
@@ -135,8 +137,6 @@ var winSettings = Titanium.UI.createWindow({
     url:'windows/settings.js',
     barColor:settings.color1,
     title:'Settings',
-    color1: settings.color1,
-    color2: settings.color2,
     message:messageWin
 });
 
